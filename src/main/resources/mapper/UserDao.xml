@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woongjin.springsi.dao.UserDao">
+  
+  <select id="selectUserByKey" 
+  			parameterType="int" 
+  			resultType="com.woongjin.springsi.model.User">
+  	select  userid,
+	        username,
+	        age
+	from    user_demo
+	where   userid = #{userid}
+  </select>
+  
+  
+</mapper>

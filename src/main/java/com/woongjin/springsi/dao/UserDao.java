@@ -3,6 +3,8 @@ package com.woongjin.springsi.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.woongjin.springsi.model.User;
@@ -11,6 +13,9 @@ import com.woongjin.springsi.model.User;
 
 @Repository
 public class UserDao {
+	
+	@Autowired
+	private SqlSession sqlSession;
 	
 	public List<User> selectAllUsers() {
 		
@@ -25,17 +30,8 @@ public class UserDao {
 	}
 
 	public User selectUserByKey(Integer userid) {
-		// DB연동 코드가 실제로 포함됨 
-		// DB연동 라이브러리는 MyBatis 사용
-		if (userid == 4) {
-			return new User(4, "류현진 ", 30);
-		}
-		else if (userid == 3) {
-			return new User(3, "류현진 ", 20);
-		}
-		else {
-			return new User(0, "aaaa", 30);
-		}
+		return sqlSession.selectOne(
+				"com.woongjin.springsi.dao.UserDao.selectUserByKey", userid);
 	}
 	
 	public User insertUser(User user) {
