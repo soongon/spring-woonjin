@@ -14,5 +14,28 @@
 	where   userid = #{userid}
   </select>
   
+  <select id="selectAllUsers" resultType="com.woongjin.springsi.model.User">
+  	select  userid,
+	        username,
+	        age
+	from    user_demo
+  </select>
   
+  <insert id="insertUser" parameterType="com.woongjin.springsi.model.User">
+  	insert into user_demo (userid, username, age)
+	values (#{userid}, #{username}, #{age});
+  </insert>
+  
+  <update id="updateUser" parameterType="com.woongjin.springsi.model.User">
+	UPDATE  user_demo
+	SET     username = #{username},
+	        age = #{age}
+	where   userid = #{userid};  
+  </update>
+  
+  <delete id="deleteUser" parameterType="int">
+  	delete  from user_demo
+	where   userid = #{userid}
+  </delete>
 </mapper>
+

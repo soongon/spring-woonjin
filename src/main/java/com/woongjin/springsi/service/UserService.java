@@ -29,12 +29,12 @@ public class UserService {
 	}
 	
 	// 사용자 정보 수정 
-	public void modifyUserInfo(User user) {
-		
+	public User modifyUserInfo(User user) {
+		return userDao.updateUser(user);
 	}
 	// 사용자 삭제 
-	public void removeUser(Integer userid) {
-		
+	public boolean removeUser(Integer userid) {
+		return userDao.deleteUser(userid);
 	}
 }
 
