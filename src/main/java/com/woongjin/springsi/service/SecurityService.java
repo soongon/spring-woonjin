@@ -32,7 +32,7 @@ public class SecurityService {
 	        .signWith(signatureAlgorithm, signingKey);
 	    
 	    long nowMillis = System.currentTimeMillis();    
-	    builder.setExpiration(new Date(nowMillis + (1000 * 60))); 
+	    builder.setExpiration(new Date(nowMillis + (1000 * 600))); 
 	    
 	    return builder.compact();
 	}

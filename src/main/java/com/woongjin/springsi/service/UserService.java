@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.woongjin.springsi.dao.UserDao;
 import com.woongjin.springsi.exception.WoongjinException;
@@ -17,6 +18,7 @@ public class UserService {
 	private UserDao userDao;
 	
 	// 사용자 등록 
+	@Transactional
 	public User registUser(User user) {
 		return userDao.insertUser(user);
 	}

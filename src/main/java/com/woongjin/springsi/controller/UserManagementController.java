@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.woongjin.springsi.annotation.TokenRequired;
 import com.woongjin.springsi.model.User;
 import com.woongjin.springsi.service.UserService;
 
@@ -30,6 +31,8 @@ public class UserManagementController {
 	@Autowired
 	private UserService userService;
 	
+	
+	@TokenRequired
 	@GetMapping("/users")
 	public Map<String, Object> searchUsers() {
 		List<User> listOfUser = userService.searchAllUsers();
