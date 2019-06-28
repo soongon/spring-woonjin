@@ -1,5 +1,6 @@
 package com.woongjin.springsi.dao;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,10 @@ public class UserDao {
 	private SqlSession sqlSession;
 	
 	public List<User> selectAllUsers() {
+		
+		int[] arr = new int[] {1,2,3,4,5};
+		int b = arr[5];
+		
 		return sqlSession.selectList(NAME_SPACE + "selectAllUsers");
 	}
 

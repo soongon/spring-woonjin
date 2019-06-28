@@ -21,6 +21,7 @@ public class UserService {
 	}
 	// 전체 사용자 조회 
 	public List<User> searchAllUsers() {
+		
 		return userDao.selectAllUsers();
 	}
 	// 사용자 아이디로 조회
