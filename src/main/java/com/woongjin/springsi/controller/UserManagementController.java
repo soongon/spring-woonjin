@@ -47,12 +47,17 @@ public class UserManagementController {
 	@GetMapping("/users/{userid}")
 	public User searchUserByUserid(@PathVariable Integer userid
 								  /* @PathVariable String hobbyid */) {
+		
+		
+		
 		log.debug("" + userid);
 		return userService.searchUserByUserid(userid);
 	}
 	
 	@PostMapping("/users")
 	public User registUser(@RequestBody User user) {
+		
+		
 		System.out.println(user);
 		return userService.registUser(user);
 	}

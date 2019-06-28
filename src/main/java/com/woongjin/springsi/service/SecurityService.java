@@ -1,12 +1,14 @@
 package com.woongjin.springsi.service;
 
 import java.security.Key;
+import java.util.Date;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 
 import org.springframework.stereotype.Service;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -28,9 +30,20 @@ public class SecurityService {
 	    JwtBuilder builder = Jwts.builder()
 	        .setSubject(userid)
 	        .signWith(signatureAlgorithm, signingKey);
-	    //long nowMillis = System.currentTimeMillis();    
-	    //builder.setExpiration(new Date(nowMillis + ttlMillis)); 
+	    
+	    long nowMillis = System.currentTimeMillis();    
+	    builder.setExpiration(new Date(nowMillis + (1000 * 60))); 
+	    
 	    return builder.compact();
+	}
+
+	public String parseToken(String token) {
+		
+		Claims claims = Jwts.parser()              
+	            .setSigningKey(DatatypeConverter.parseBase64Binary(secretKey))
+	            .parseClaimsJws(token).getBody();
+		
+	    return claims.getSubject();
 	}
 
 }
