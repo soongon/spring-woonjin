@@ -22,6 +22,13 @@ public class UserService {
 	// 전체 사용자 조회 
 	public List<User> searchAllUsers() {
 		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return userDao.selectAllUsers();
 	}
 	// 사용자 아이디로 조회
