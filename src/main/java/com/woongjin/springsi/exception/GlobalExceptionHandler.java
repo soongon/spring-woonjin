@@ -12,6 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GlobalExceptionHandler {
 	
+	@ExceptionHandler(value=WoongjinException.class)
+	public Map<String, Object> handleWoongjinException(WoongjinException e) {
+		
+		String errorCode = e.getMessage();
+		
+//		ErrorCodeProcessor p = new ErrorCodeProcessor(errorCode);
+//		p.getSolution();
+//		
+		Map<String, Object> result = new HashMap<>();
+		result.put("error_code", e.getMessage());
+		
+		return result;
+	}
+	
 	@ExceptionHandler(value=BadSqlGrammarException.class)
 	public Map<String, Object> handleBadSQLGrammarException(BadSqlGrammarException e) {
 		Map<String, Object> result = new HashMap<>();

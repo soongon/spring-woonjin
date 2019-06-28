@@ -23,9 +23,6 @@ public class UserDao {
 	
 	public List<User> selectAllUsers() {
 		
-		int[] arr = new int[] {1,2,3,4,5};
-		int b = arr[5];
-		
 		return sqlSession.selectList(NAME_SPACE + "selectAllUsers");
 	}
 

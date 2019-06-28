@@ -7,8 +7,8 @@
   <select id="selectUserByKey" 
   			parameterType="int" 
   			resultType="com.woongjin.springsi.model.User">
-  	select  user_id		as userid,
-	        user_name	as username,
+  	select  userid		as userid,
+	        username	as username,
 	        age			as age
 	from    user_demo
 	where   userid = #{userid}

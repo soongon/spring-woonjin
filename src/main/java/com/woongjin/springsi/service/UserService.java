@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.woongjin.springsi.dao.UserDao;
+import com.woongjin.springsi.exception.WoongjinException;
 import com.woongjin.springsi.model.User;
 
 // 시스템 기능(요구사항)을 표현(작성)
@@ -22,12 +23,19 @@ public class UserService {
 	// 전체 사용자 조회 
 	public List<User> searchAllUsers() {
 		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+//		try {
+//			double a = 3 / 0;
+//			return userDao.selectAllUsers();
+//		} catch (Exception e) {
+//			throw new WoongjinException("1001", e);
+//		}
 		
 		return userDao.selectAllUsers();
 	}
